@@ -1,0 +1,388 @@
+学java啊，要不要我教你
+来来来，先是流程
+
+if会不
+- 这个没事
+else if呢
+- 会
+
+while
+-会了
+
+for和for in会不会？
+-这个不会
+for in不是js那个
+for(int 键值=0;键值<10;键值++){
+
+}
+第一个赋值，第二个继续的条件，第三个为键值++
+
+
+然后是for in
+只能对Object[]或者是Connection(List或者Map)使用   <--Collection
+
+for (Object 单个 : List) {
+单个.method()
+}
+-method是啥
+
+就是循环遍历，方便的遍历数组
+方法的英文....
+
+给你个new String[]{"1","2","3"}
+写一个循环打印的控制台代码
+让你试试
+- 就是循环打印出来吗
+
+System.out.print打印
+用刚才说的for in试试
+
+如果整个是String[]
+就不用Object了
+
+直接String
+这样用
+- 明白了
+
+
+好了继续
+try catch finally会不会
+
+Error和Exception知道不
+
+先来讲错误捕捉
+try {
+
+}catch(错误类型 $错误) {
+//处理错误
+}
+
+错误类型分很多种
+
+比如NullPoint
+
+来试试捕捉一个空指针
+就是一个代码快
+
+这是一个例子，会把空指针捕捉
+很简单把，catch里写了捕捉NullPointerException
+- 知道了
+实际上catch块就是一个方法
+
+这个类型，就是你要捕捉的异常类型
+如果你写成Exception
+就是所有的异常
+- 好的
+
+异常呢，还有一种叫做RuntimeException
+可以直接throw不用声明
+- throw是啥
+抛出异常
+
+试试
+
+throw new Exception()
+
+aide会提示让你trycatch或者给方法加上thorws标签
+
+好了，你试试
+
+throw new RuntimeException()
+
+这样aide不会提示让你try catch或者throws，但是仍然会报错
+这就是区别了
+
+可以强制抛出
+
+试试
+
+然后我们来讲怎么操作这个错误的对象，来处理错误
+
+来讲错误的类
+先不管错误，来讲原始类型和类
+原始类型，就是int double之类的
+原始类型不是对象
+不能用对象的方法操作，可以和对象直接比较
+
+
+
+来继续java
+
+来讲原始类型，类，和一些误区
+
+通俗点，按照js，类就是，一个定义的函数，还没运行，实例化就是运行了，赋值一个上下文，相当于js的函数里返回this
+有点不好理解，总之实例就是一个新的运行过的(初始化过的)类
+再说String
+他不是原始类型
+
+比如 "123"
+他可以直接用 "123".toString()
+虽然没有意义，但是我们知道 "123"是一个实例，不是原始类型
+实例和原始类型比较 可以用 ==
+但是实例和实例不可以
+- .equals吗
+
+试试
+
+String a = "123";
+System.out.print(a == "123");
+
+
+如果是原始类型就不用
+- 明白
+
+然后就是，原始类型都是对应一个类
+比如int 就是Integer
+
+原始类型是，可以直接强制转换，他对应的类
+比如 int a = 1
+((Integer)a).toString()
+- 那么a就变成字符串了吗
+- 一个实例？
+
+只是返回一个字符串
+
+a的变量没有改变
+然后就是一个东西
+类的实例可以赋值null
+
+而原始类型的变量不可以
+
+
+比如
+
+Boolean a = null // 可以
+boolean b = null //报错
+
+
+Boolean是一个类
+类为Boolean的变量的值是他的实例
+
+类型为类的实例的变量的置可以为null，而类型为原始变量的变量的值不可以
+
+也就是说，原始变量的值不是实例
+
+你每次使用数字，数字都是固定的，不会存在有多个内存，这样岂不是太浪费内存？
+所以原始类型有固定的变量，不可以改变
+比如你不能把1变成2
+boolean只有true和false，不能null，懂了吧
+- 明白了
+
+int只能1234567890，好了我们继续
+
+接下来讲静态
+
+总之就是修饰符
+public private protected 不加修饰符
+的区别知道不
+
+public 任何类可以访问他
+可以修饰类，方法，变量
+但是如果不是静态(static)只能在实例化之后改变
+
+- 举个例子
+
+public static void main(String[] $参数) {
+		
+		System.out.println(类.静态变量);
+		//可以在任何类访问 修改
+		
+		类 $实例 = new 类();
+		System.out.println($实例.变量);
+		//在实例化的时候赋值 实例化了才能使用
+		
+	}
+	
+	public static class 类 {
+		
+		public String 变量 = "233";
+		public static String 静态变量 = "666";
+		
+	}
+
+为什么不能直接访问变量？因为他在实例化的时候才赋值。没有实例化就不存在
+静态变量什么时候赋值？当你访问类的时候就自动赋值了，所以可以直接使用
+然后就是方法的静态
+静态的方法只能访问这个类静态的变量
+我来写个实例吧
+
+public static void main(String[] $参数) {
+		
+		类.静态方法();
+		
+		类 $实例 = new 类();
+		
+		$实例.方法();
+		
+	}
+	
+	public static class 类 {
+		
+		public String 变量 = "233";
+		public static String 静态变量 = "666";
+		
+		public static void 静态方法() {
+			
+			静态变量 = "123";
+			//可以直接操作
+			// 变量 = "456";
+			//报错 还没有实例化
+			
+		}
+		
+		public void 方法() {
+			
+			静态变量 = "123";
+			//可以直接操作
+			变量 = "456";
+			//已经实例化的类的方法 可以操作他的变量
+			
+		}
+		
+	}
+
+注意这里的public
+不写public 就等于private
+就只能被类的自己的方法访问
+
+然后是protected
+如果类 是protected
+那么只有相同包才能访问他
+什么是相同包，就是上面的package完全相等
+这个就当扩展了，以后自然懂
+
+然后讲方法的返回值
+
+public void 方法() {
+}
+
+void也是一种原始类型
+就是没有，对应一个空的类Void
+必须是没有，不能null，这就是原始变量....
+如果是void，就可以不写return
+
+当然，如果你要在判断里直接结束，就用return;
+
+- 明白
+然后将一个java多个类和子类
+一个java多个类，但是只有和文件名一样的类名才能是public
+很简单吧......
+比如abc.java
+public的类只能是abc
+但是子类不一样
+
+昨天说到哪里来着
+子类和静态子类
+我写个实例去
+public static void main(String... $参数) {
+		
+		
+		
+	}
+	
+	public class 子类 {
+		
+		public void 方法() {
+			Main.this.main();
+			//因为子类实例化的时候带有父类的实例
+			//相当于把父类的实例赋值到了 父类名.this
+		}
+		
+	}
+	
+	public static class 静态子类 {
+		
+		public void 方法() {
+			//Main.this.main();
+			//不可以直接访问父类
+		}
+		
+	}
+ok，子类和静态子类的区别就是。。
+
+静态子类实例化不会带有父类的实例
+
+顺便说一下，子类只能在父类的实例里赋值
+[表情]呸，是实例化
+然后是接口和抽象类
+
+先将接口
+public interface 接口 {
+public void 接口方法();
+}
+就是提供一个标准
+
+比如onClickListener对吧
+就是一个还没写的作业
+[表情]实现接口就是让你写
+然后我们讲怎么实现接口
+
+我去写个实例
+public class Main implements 接口2 {
+
+	@Override
+	public void 接口方法2() {
+		// 直接在类上实现
+	}
+	
+
+	public static void main(String... $参数) {
+		
+		接口1 实例 = new 接口1() {
+			@Override
+			public void 接口方法1() {
+				// 实现方法1
+				// 直接new一个 实际上编译时创建子类
+			}
+		};
+		
+	}
+	
+	
+
+}
+
+interface 接口1 {
+
+	public void 接口方法1();
+
+}
+
+interface 接口2 {
+
+	public void 接口方法2();
+
+}
+
+
+第一 在类上implements 接口[表情]
+可以实现多个，是基本用法
+
+第二种直接new 相当于是匿名子类
+
+为什么用第二种呢？因为多创建一个子类多此一举，比如单击事件
+
+匿名的子类，编译的时候就是编译成数字子类()
+
+这种数字，就是new 接口来实现的
+
+接口应该可以理解把
+
+你不可能每个单击事件都写一个子类继承onClickListener
+所以就是
+
+new OnClickListener() {
+onClick() {}
+}
+这样就会自动创建接口的实现类(数字类)
+
+然后是抽象类
+什么是抽象类，抽象类就是作业本写了一半，之后的等课上课再写
+我去写个实例
+
+其实这个更简单
+但是他只是有未实现的接口
+(可以理解为类和接口在一起)
+他和普通的类一样，只不过继承或者new的时候要实现他未实现的接口
+接口里只能是抽象方法
+抽象类里可以包含抽象方法
